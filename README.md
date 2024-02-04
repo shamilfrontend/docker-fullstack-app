@@ -1,10 +1,11 @@
 # Docker example
 
-### mongoDB install
-`docker run -d -p :27017:27017 --name mongodb --rm mongo`
+##Backend
+### MongoDB setting
+`docker run -d -p 27017:27017 --name mongodb --rm mongo`
 
-### backend start
-`docker run -p 3001:3001 --rm --name notes-backend notes-backend`
-
-### Сборка образа backend
+### Сборка образа
 `docker build -t notes-backend .`
+
+### Запуск образа
+`docker run -p 3001:3001 --rm --name backend notes-backend`
