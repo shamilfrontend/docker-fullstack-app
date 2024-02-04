@@ -1,1 +1,4 @@
-# docker-fullstack-app
+# Docker example
+
+### mongoDB install
+`docker run -d -p :27017:27017 --name mongodb --rm mongo`
