@@ -1,12 +1,13 @@
 import {useCallback, useEffect, useState} from 'react'
 import axios from 'axios'
-import {List} from './List.jsx'
-import {Form} from './Form.jsx'
+
+import AppForm from './components/AppForm.jsx'
+import AppList from './components/AppList.jsx'
 
 const baseURL = 'http://localhost:3001'
 const api = axios.create({ baseURL })
 
-function App() {
+export default function App() {
   const [notes, setNotes] = useState([])
 
   async function createNote(text) {
@@ -25,16 +26,15 @@ function App() {
   }, [fetchNotes])
 
   return (
-    <div>
+    <div className="app">
       <nav className="navbar">
         <h3>Docker MERN</h3>
       </nav>
       <div className="container with-nav">
-        <Form onCreate={createNote} />
-        <List list={notes} />
+        <AppForm onCreate={createNote} />
+
+        <AppList list={notes} />
       </div>
     </div>
   )
 }
-
-export default App;

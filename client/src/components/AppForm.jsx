@@ -1,6 +1,6 @@
-import {useState} from 'react'
+import { useState } from 'react'
 
-export function Form({onCreate}) {
+export default function AppForm({ onCreate }) {
   const [note, setNote] = useState('')
   const onSubmit = e => {
     e.preventDefault()

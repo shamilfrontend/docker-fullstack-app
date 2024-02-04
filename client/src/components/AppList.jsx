@@ -1,4 +1,4 @@
-export function List({list = []}) {
+export default function AppList({ list = [] }) {
   if (list.length === 0) {
     return <p className="text-center">No notes yet.</p>
   }
@@ -6,7 +6,7 @@ export function List({list = []}) {
   return (
     <ul className="list">
       {list.map(note => (
-        <li key={note._id} className="list-item">{note.text}</li>
+        <li key={note._id} className="list-item">{ note.text }</li>
       ))}
     </ul>
   )
