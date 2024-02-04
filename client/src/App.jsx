@@ -3,16 +3,19 @@ import axios from 'axios'
 import {List} from './List.jsx'
 import {Form} from './Form.jsx'
 
+const baseURL = 'http://localhost:3001'
+const api = axios.create({ baseURL })
+
 function App() {
   const [notes, setNotes] = useState([])
 
   async function createNote(text) {
-    const note = await axios.post('http://localhost:3001/api/note', {text})
+    const note = await api.post('/api/note', {text})
     setNotes([...notes, {...note.data.note}])
   }
 
   const fetchNotes = useCallback(async () => {
-    const notes = await axios.get('http://localhost:3001/api/note')
+    const notes = await api.get('/api/note')
 
     setNotes(Array.isArray(notes.data) ? notes.data : [])
   }, [])
